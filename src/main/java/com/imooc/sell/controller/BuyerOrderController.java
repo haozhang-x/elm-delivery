@@ -6,6 +6,7 @@ import com.imooc.sell.dto.OrderDTO;
 import com.imooc.sell.enums.ResultEnum;
 import com.imooc.sell.exception.SellException;
 import com.imooc.sell.form.OrderForm;
+import com.imooc.sell.service.BuyerService;
 import com.imooc.sell.service.OrderService;
 import com.imooc.sell.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,9 @@ public class BuyerOrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private BuyerService buyerService;
 
     //创建订单
     @PostMapping("/create")
@@ -74,9 +78,16 @@ public class BuyerOrderController {
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
                                      @RequestParam("orderId") String orderId) {
-        OrderDTO orderDTO = orderService.findOne(orderId); //TODO 不安全的做法
-        //OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
+        OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
         return ResultVOUtil.success(orderDTO);
+    }
+
+    //取消订单
+    @PostMapping("/cancel")
+    public ResultVO cancel(@RequestParam("openid") String openid,
+                           @RequestParam("orderId") String orderId) {
+        buyerService.cancelOrder(openid, orderId);
+        return ResultVOUtil.success();
     }
 
 }

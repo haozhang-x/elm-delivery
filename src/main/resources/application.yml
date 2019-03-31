@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1/wechat_ordering_system?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://10.11.88.80/elm_delivery?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
   jackson:
@@ -13,7 +13,7 @@ spring:
     port: 6379
     password: 123456
 server.servlet:
-  context-path: /sell
+  context-path: /elm
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"

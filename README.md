@@ -1,4 +1,4 @@
-# elm / 饿了么（伪）
+# elm / 饿了么（伪） 🍔 😋
 
 ## 项目介绍
 
@@ -22,11 +22,11 @@ SpringBoot +  JPA + MyBatis + Redis + WebSocket + SpringCloud
 
 前端
 
-![前端](./document/resource/前端.png)
+![前端结构](./document/resource/前端结构.png)
 
 后端
 
-![后端](./document/resource/后端.png)
+![后端结构](./document/resource/后端结构.png)
 
 微服务化
 
